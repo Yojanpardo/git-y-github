@@ -52,6 +52,7 @@ Para trabajar con git en la terminal debemos saber unos cuantos comandos, aquí 
 
 	$ cd [ruta de una carpeta] -nos permite movernos entre los directorios del sistema
 	$ ls -nos lista el contenido del directorio en el que nos encontremos
+	$ls -a -muestra los archivos ocultos
 	$ clear -limpia la terminal
 	$ mkdir [nombre del directorio nuevo] -crea un nuevo directorio
 	$ touch [nombre del archivo] -crea un archivo con el nombre que le ingresamos, es importante añadir la extensión del archivo
@@ -71,3 +72,45 @@ oprimimos la tecla esc y aqui podemos escribir ciertos comandos
 
 	:wq -guarda el archivo y sale del editor
 	:q! -para salir sin guardar nada alvt
+
+## Creando un nuevo proyecto (git init)
+Para iniciar un nuevo repositorio ejecutamos el siguiente comando
+
+	$git init -Inicia un nuevo proyecto en la carpeta en la que se encuntran parados
+	$git init [nombre del proyecto] -crea una carpeta con el nombre ingresado y en ella inicia el nuevo repositorio
+
+Para eliminar un repositorio lo hacemos con el siguiente comando
+
+	$ rm -rf .git -esto elimina la carpeta de .git que tiene almacenados los datos del repositorio.
+
+## Añadiendo archivos al stagin area
+antes que nada podemos revisar si tenemos archivos sin añadir al staging area
+
+	$ git status -nos muestra el estado de los archivos de nuestro proyecto.
+para ello utilizamos el siguiente comando
+
+	$ git add [archivo] -para añadir un archivo en especifico
+	$ git add -A -para añadir todos los archivos que estén sin añadir
+	$ git add -n [archivo] -con este comando se selecciona un archi para que no sea tomado en cuenta para pasarlo al staging area  
+
+podemos hacer el siguiente comando para quitar devolvernos
+
+	$ git rm --cached [Archivo]
+	$ git rm -f [archivo] -elimina un archi de forma permanente
+
+## añadiendo archivos al git directory
+una vez que tenemos todos nuestros archivos en staging area procedemos a acer un commit para que de esta manera nuestros archivos sean confirmados dentro de nuestro repositorio.
+
+		$ git commit -m ["descripción corta de lo que se hizo en este comit"]
+		$ git commit -m ["mensaje"] --amend -concatena el commit nuevo con el commit anterior
+
+podemos mirar el registro de los que hemos hecho en nuestro proyecto utlizando
+
+	$ git log
+el siguiente es un comando super chingon que nos permite ver todos nuestros comits de una forma super cool pero para ello debemos configurar un alias primero asi que escribimos esto en nuestra terminal
+
+	$ git config --global alias.slog 'log --graph --abbrev-commit --decorate --date=relative --format=format:"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white) - %an%C(reset)%C(bold yellow)%d%C(reset)" --all'
+
+y ahora solo debemos escribir nuestro "nuevo comando" para ver nuestro registro bien chidori
+
+	$ git slog
