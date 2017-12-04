@@ -103,14 +103,6 @@ una vez que tenemos todos nuestros archivos en staging area procedemos a acer un
 
 		$ git commit -m ["descripción corta de lo que se hizo en este comit"]
 		$ git commit -m ["mensaje"] --amend -concatena el commit nuevo con el commit anterior
-
-podemos mirar el registro de los que hemos hecho en nuestro proyecto utlizando
-
-	$ git log
-el siguiente es un comando super chingon que nos permite ver todos nuestros comits de una forma super cool pero para ello debemos configurar un alias primero asi que escribimos esto en nuestra terminal
-
-	$ git config --global alias.slog 'log --graph --abbrev-commit --decorate --date=relative --format=format:"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white) - %an%C(reset)%C(bold yellow)%d%C(reset)" --all'
-
 y ahora solo debemos escribir nuestro "nuevo comando" para ver nuestro registro bien chidori
 
 	$ git slog
@@ -139,3 +131,23 @@ para renombrar y borrar
 
 	$ git tag -f -a [nueva etiqueta] -m ['nueva anotacion'] [SHA-1]
 	$ git tag -d [tag]
+## Revisando nuestro proyecto
+para ello utilizamos el comando
+
+	$ git log
+a medida que avanzamos en nuestro proyecto van a ir apareciendo más commits así que podemos ver la historia de nuestro proyecto mas ordenada o mas resumida.
+
+ 	$ git log --oneline
+
+podemos ver solo los commits que queramos, por ejemplo si solo queremos ver los dos ultimos utilizamos
+
+	$ git log -2
+Tambien podemos combinar varios flags en nuestro log. por ejemplo:
+
+	$ git log --oneline --graph
+
+puedes encontrar mas en la [documentacion de git](https://www.git-scm.com/docs/git-log)
+
+el siguiente es un comando super chingon que nos permite ver todos nuestros comits de una forma super cool pero para ello debemos configurar un alias primero asi que escribimos esto en nuestra terminal
+
+	$ git config --global alias.slog 'log --graph --abbrev-commit --decorate --date=relative --format=format:"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white) - %an%C(reset)%C(bold yellow)%d%C(reset)" --all'
