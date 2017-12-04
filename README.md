@@ -151,3 +151,25 @@ puedes encontrar mas en la [documentacion de git](https://www.git-scm.com/docs/g
 el siguiente es un comando super chingon que nos permite ver todos nuestros comits de una forma super cool pero para ello debemos configurar un alias primero asi que escribimos esto en nuestra terminal
 
 	$ git config --global alias.slog 'log --graph --abbrev-commit --decorate --date=relative --format=format:"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white) - %an%C(reset)%C(bold yellow)%d%C(reset)" --all'
+## Revisando cambios entre versiones
+Es necesario revisar los cambios realizados de una version a otra para no cometer nuevamente mismos errores y saber que es lo que le hace falta a nuestro proyecto. para ello utilizamos
+
+	$ git diff [SHA-1]
+nos muestra los cambios realizados en ese commit
+
+si queremos comparar diferentes commits entonces lo hacemos de la siguiente manera
+
+	$ git dif [SHA-1] [SHA-1]
+
+## Regresando en el tiempo
+de vez en cuando la cagamos y necesitamos deshacer cambios o hacer como un ctrl-z asi que para ello utilizamos reset con sus diferentes flags
+
+	$ git reset --soft [SHA-1]
+
+ponemos el SHA-1 del comit desde el que queremos eliminar los commits, nos deja lo que tenemos en el staging area listos para hacer commit, como tal no elimina archivos.
+
+	$ git reset --mixed [SHA-1]
+Elimina tambien los cambios en el staging area, a partir de aqui debemos hacer un git add y git commit
+
+	$ git reset --hard [SHA-1]
+elimina absolutamente todo, incluso los archivos en el working directoy.
