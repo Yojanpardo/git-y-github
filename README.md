@@ -114,3 +114,28 @@ el siguiente es un comando super chingon que nos permite ver todos nuestros comi
 y ahora solo debemos escribir nuestro "nuevo comando" para ver nuestro registro bien chidori
 
 	$ git slog
+
+## Etiquetando nuestro proyecto
+existen dos tipos de etiquetas:
+- light with (ligeras) es la version de como vamos a etiquetar (1.0, 2.0, etc)
+- anotated (anotadas) requiere el nombre de referencia de la etiqueta  y una anotacion
+
+etiqueta ligera.
+
+	$ git tag 1.1
+etiqueta anotada
+
+	$ git tag -a 2.0 -m "version estable del proyecto"
+
+para ver la etiqueta
+
+	$ git tag -l
+
+para etiquetar un commit anterior al que nos encontramos parados debemos utilizar el Hash del commit que queremos etiquetar.
+
+	$git tag -a 0.3 [hash]
+
+para renombrar y borrar
+
+	$ git tag -f -a [nueva etiqueta] -m ['nueva anotacion'] [SHA-1]
+	$ git tag -d [tag]
