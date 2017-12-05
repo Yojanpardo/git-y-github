@@ -228,4 +228,6 @@ En el momento en el que tenemos cambios que no estamos seguros de aplicar o si t
 git stash solo almacena los cambios realizados que estén almacenados en el staging.
 
 ## git cherry-pick
-nos permite seleccionar commits
+nos permite seleccionar commits para moverlos a otras ramas
+
+	$ git cherry-pick [SHA-1]
