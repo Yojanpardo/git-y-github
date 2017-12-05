@@ -186,9 +186,9 @@ Git tiene grandes herramientas como por ejemplo trabajar en paralelo con diferen
 ## creando nuevas ramas
 
 	$ git branch [nombre-de-la-rama]
-	$ git bransh -l --para listar las ramas existentes
+	$ git branch -l --para listar las ramas existentes
 	$ git branch -D [nombre] --elimina la rama nombrada
-	$git bransh -m [nombre-viejo] [nuevo-nombre] -- para renombrar ramas
+	$git branch -m [nombre-viejo] [nuevo-nombre] -- para renombrar ramas
 
 ## Git checkout
 
