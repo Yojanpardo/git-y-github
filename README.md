@@ -173,3 +173,59 @@ Elimina tambien los cambios en el staging area, a partir de aqui debemos hacer u
 
 	$ git reset --hard [SHA-1]
 elimina absolutamente todo, incluso los archivos en el working directoy.
+
+si la cagamos y no queriamos borrar algo debemos regresarnos al estado en el que estabamos completamente seguros. Git reset --hard no afectará los archivos que no hayamos añadido.
+
+## Configurando otro editor
+
+	$ git config --global core.editor "[nombre del editor] --wait"
+
+# Hablemos de ramas y mundos paralelos
+Git tiene grandes herramientas como por ejemplo trabajar en paralelo con diferentes desarrolladores
+
+## creando nuevas ramas
+
+	$ git branch [nombre-de-la-rama]
+	$ git bransh -l --para listar las ramas existentes
+	$ git branch -D [nombre] --elimina la rama nombrada
+	$git bransh -m [nombre-viejo] [nuevo-nombre] -- para renombrar ramas
+
+## Git checkout
+
+	$ git checkout [nombre] -nos mueve a una rama
+	$ git checkout [SHA-1] --nos movemos a un commit anterior
+	$ git checkout -b [nombre] --creamos una rama nueva
+	git checkout -- <file> --nos permite eliminar los cambios realizados sobre un archivo que no esté en el staging area.
+
+## trabajando en paralelo
+ti tenemos archivos untraked y cambiamos de rama, éstos archivos se van a mover de donde los dejamos hacia la rama en donde estamos parados.
+
+## git merge
+cuando vamos a mezclar los cambios realizados en nuestras otras ramas debemos hacer lo siguiente:
+
+1. nos paramos en la rama en la cual queremos mezclar los cambios, en este caso lo haremos en master:
+
+	$ git checkout master
+2. ahora le decimos que es lo que queremos mezclar. para ello utilizamos el siguiente comando.
+
+	$ git merge [nombre de la rama que queremos mezclar]
+si todo está en orden nos hará un fast-forward si no entonces debemos hacer un merge recursivo lo que nos hace selecconar los cambios manualmente
+
+# Reescribiendo la historia de nuestro proyecto
+
+vamos a aprender a utilizar git rebase que es practicamente lo mismo que un merge pero no crea bifurcaciones, solo usarlo localmente, es mejor utilizar merge para que se vea mas claro que es lo que se está haciendo.
+
+	$ git rebase
+	$ git rebase -i --abre una ventana interactiva para hacer nuestro rebase.
+
+## Guardando cambios temporalmente
+En el momento en el que tenemos cambios que no estamos seguros de aplicar o si tenemos que dejar a medias lo que estamos haciendo podemos guardar nuestros cambios sin confirmarlos.
+
+	$ git stash  --nos guarda el estado actual sin confirmarlo
+	$ git stash list --nos muestra un listado de nuestros stash
+	$ git stash drop stash@[{numero}] --elimina el stash seleccionado
+	$ git stash apply stash@[{numero}]--aplica los cambios almacenados en la lista de los stash
+git stash solo almacena los cambios realizados que estén almacenados en el staging.
+
+## git cherry-pick
+nos permite seleccionar commits
