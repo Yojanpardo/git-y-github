@@ -231,3 +231,6 @@ git stash solo almacena los cambios realizados que estén almacenados en el stag
 nos permite seleccionar commits para moverlos a otras ramas
 
 	$ git cherry-pick [SHA-1]
+
+# Github
+Github es una plataforma web en la que podemos subir nuestros proyectos, ver los proyectos de nuestros amigos, colaborar con otros proyectos, entre otras cosas.
