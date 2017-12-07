@@ -234,3 +234,31 @@ nos permite seleccionar commits para moverlos a otras ramas
 
 # Github
 Github es una plataforma web en la que podemos subir nuestros proyectos, ver los proyectos de nuestros amigos, colaborar con otros proyectos, entre otras cosas.
+
+para poder subir nuestros proyectos a github debemos configurar una llave ssh para que haya una conexion segura entre nuestro entorno local y la plataforma web. para ello debemos generar nuestra llave
+
+	$ ssh-keygen -t rsa -b 4096 -C ["email"]
+
+a continuacion lo pegamos y lo compiamos en el administrados de llaves de github. lo podemos copiar con el siguiente comando
+
+	$ pbcopy < ~/.ssh/id_rsa.pub
+
+## agregando nuestro repositorio local a un repo remoto
+para ello utilizamos el siguiente comando
+
+	$ git remote add origin [HTTPS/SSH del repo] --Conecta el repositorio local con el repo de la plataforma.
+
+	$ git remote -v  --Lista las conexiones existentes
+
+	$ git remote remove [origin] --elimina la conexion con algun repositorio
+
+## Trayendo cambios desde un repositorio remoto.
+Debemos traer los archivos que existen en un repositorio remoto a nuestro local para poder subir nuestros cambios a github.
+
+	$ git fetch origin master --Trae los cambios de origin en la rama master.
+
+	$  git pull origin master --hace un fetch y un merge en un solo paso.
+
+en ocaciones habran problemas al mezclar nuestro origin/master con master asi que hacemos lo siguiente:
+
+	$ git merge origin/master --allow-unrelated-histories
