@@ -262,3 +262,22 @@ Debemos traer los archivos que existen en un repositorio remoto a nuestro local 
 en ocaciones habran problemas al mezclar nuestro origin/master con master asi que hacemos lo siguiente:
 
 	$ git merge origin/master --allow-unrelated-histories
+
+# Enviando cambios a github
+
+	$ git push origin master --Envia los cambios a la rama master. master se puede cambiar por otro nombre de otra rama.
+
+	$ git push origin master --tags -- envia los tags que tenemos al repositorio remoto.
+
+# Explorando Github
+## Github projects
+deberia crear un proyecto por cada feature grande que tiene nuestro repo son como columnas de un kanban  
+
+## creando un template para issues
+lo unico que hay que hacer es un archivo que se llame "issue_template.md" con los lineamientos que deben ser seguidos por la persona que va a hacer el issue.
+## Creando un template para pull request
+en un proyecto colaborativo las vamos a trabajar con otras personas y es necesario que los demas colaboradores se guien de una plantilla para hacer un pull request para ello basta con crear un qrchivo que se llame "pull_request_template.md" y en el se ponen los lineamientos a seguir.
+## Ignorando archivos importantes.
+git nos permite ignorar archivos importantes que almacenan contraseñas o informacion delicada y se hace de la siguiente manera:
+1. debemos crear un archivo que se llame .gitignore
+2. dentro de este archivo es necesario escribir el nombre de los archivos que queremos que ignore.
